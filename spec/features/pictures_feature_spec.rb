@@ -17,8 +17,18 @@ feature 'pictures' do
     scenario 'displays picture' do
       visit '/pictures'
       expect(page).to have_content('Beach life!')
-      # save_and_open_page
       expect(page).not_to have_content('No picutres yet')
+    end
+
+    scenario 'let a user edit a picture title' do
+      visit '/pictures'
+      click_link 'Beach life!'
+      fill_in 'Title', with: 'Sooo sunny!!'
+      save_and_open_page
+      click_button 'Update Picture'
+      expect(page).to have_content 'Sooo sunny!!'
+      expect(page).not_to have_content 'Beach life!'
+      expect(current_path).to eq '/pictures'
     end
   end
 
@@ -31,16 +41,19 @@ feature 'pictures' do
       expect(page).to have_content 'Beach life!'
       expect(current_path).to eq '/pictures'
     end
+  end
 
     # scenario 'promts user to add a picture with a file upload' do
     #   visit '/pictures'
     #   click_link 'Add Picture'
     #   fill_in 'Title', with: 'Beach life!'
-    #   click_lick 'Choose File'
+    #   attach_file('Image', '/path/to/image.jpg')
     #   click_button 'Create Picture'
     #   expect(page).to have_content 'Beach life!'
     #   expect(current_path).to eq '/pictures'
     # end
-  end
+
+
+
 
 end
