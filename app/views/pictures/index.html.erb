@@ -1,0 +1,13 @@
+<body>
+<h1>Welcome to IstaClone!</h1>
+
+<% if @pictures.any? %>
+  <% @pictures.all.each do |picture| %>
+    <h2><%= picture.title %></h2>
+  <% end %>
+<% else %>
+  <h1>No pictures yet</h1>
+<% end %>
+
+<a href='#'>Add Picture</a>
+</body>
