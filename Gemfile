@@ -27,6 +27,16 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
+gem 'launchy'
+gem 'devise'
+# Devise related gems
+gem 'omniauth-facebook'
+
+gem 'paperclip'
+gem 'aws-sdk'
+
+gem 'pry-rails'
+gem 'shoulda-matchers'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

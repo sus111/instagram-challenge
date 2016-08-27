@@ -17,7 +17,19 @@ feature 'pictures' do
     scenario 'displays picture' do
       visit '/pictures'
       expect(page).to have_content('Beach life!')
+      # save_and_open_page
       expect(page).not_to have_content('No picutres yet')
+    end
+  end
+
+  context 'upload picture' do
+    scenario 'promts user to add a picture with a title' do
+      visit '/pictures'
+      click_link 'Add Picture'
+      fill_in 'Title', with: 'Beach life!'
+      click_button 'Create Picture'
+      expect(page).to have_content 'Beach life!'
+      expect(current_path).to eq '/pictures'
     end
   end
 
