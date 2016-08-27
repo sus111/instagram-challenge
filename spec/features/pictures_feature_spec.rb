@@ -31,6 +31,16 @@ feature 'pictures' do
       expect(page).to have_content 'Beach life!'
       expect(current_path).to eq '/pictures'
     end
+
+    # scenario 'promts user to add a picture with a file upload' do
+    #   visit '/pictures'
+    #   click_link 'Add Picture'
+    #   fill_in 'Title', with: 'Beach life!'
+    #   click_lick 'Choose File'
+    #   click_button 'Create Picture'
+    #   expect(page).to have_content 'Beach life!'
+    #   expect(current_path).to eq '/pictures'
+    # end
   end
 
 end

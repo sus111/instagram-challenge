@@ -3,6 +3,7 @@
 
 <% if @pictures.any? %>
   <% @pictures.all.each do |picture| %>
+    <%= image_tag picture.image.url(:thumb) %>
     <h2><%= picture.title %></h2>
   <% end %>
 <% else %>
