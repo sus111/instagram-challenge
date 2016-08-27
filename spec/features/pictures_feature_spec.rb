@@ -30,6 +30,13 @@ feature 'pictures' do
       expect(page).not_to have_content 'Beach life!'
       expect(current_path).to eq '/pictures'
     end
+
+    scenario 'removes a picture when user clicks a delete link' do
+      visit '/pictures'
+      click_link 'Delete'
+      expect(page).not_to have_content 'Beach life!'
+      expect(page).to have_content 'Your picture has been deleted'
+    end
   end
 
   context 'upload picture' do

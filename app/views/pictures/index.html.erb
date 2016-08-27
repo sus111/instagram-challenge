@@ -4,6 +4,7 @@
 <% if @pictures.any? %>
   <% @pictures.all.each do |picture| %>
     <%= image_tag picture.image.url(:thumb) %>
+    <h5><%= link_to "Delete", picture_path(picture), method: :delete %></h5>
     <h5><%= link_to "#{picture.title}", edit_picture_path(picture) %></h5>
   <% end %>
 <% else %>
