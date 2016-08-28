@@ -18,5 +18,13 @@ feature 'leaving comments' do
     expect(page).to have_content('2 comments')
   end
 
+  # scenario 'show multiple comments' do
+  #   leave_comment
+  #   leave_comment(thoughts: "wow!")
+  #   # click_link()
+  #   # expect(current_path).to eq "/pictures/#{picture.id}"
+  #   expect(page).to have_content('Looks beautiful!')
+  #   expect(page).to have_content('wow!')
+  # end
 
 end

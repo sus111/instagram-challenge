@@ -47,8 +47,20 @@ feature 'pictures' do
 
     scenario 'displays picture on seperate page' do
       visit '/pictures'
+      # click_link picture
     end
   end
 
+
+
+    # scenario 'promts user to add a picture with a file upload' do
+    #   visit '/pictures'
+    #   click_link 'Add Picture'
+    #   fill_in 'Title', with: 'Beach life!'
+    #   attach_file('Image', '/path/to/image.jpg')
+    #   click_button 'Create Picture'
+    #   expect(page).to have_content 'Beach life!'
+    #   expect(current_path).to eq '/pictures'
+    # end
 
 end
