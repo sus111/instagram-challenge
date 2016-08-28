@@ -1,0 +1,7 @@
+<body>
+<%= image_tag @picture.image.url(:medium) %>
+<h2><%= @picture.title %></h2>
+<% @picture.comments.all.each do |comment| %>
+  <h5><%= "#{comment.thoughts}" %>
+<% end %>
+</body>

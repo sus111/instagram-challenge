@@ -9,6 +9,14 @@ feature 'pictures' do
     end
   end
 
+  context 'upload picture' do
+    scenario 'promts user to add a picture with a title' do
+      add_picture
+      expect(page).to have_content 'Beach life!'
+      expect(current_path).to eq '/pictures'
+    end
+  end
+
   context 'pictures have been added' do
     before do
       Picture.create(title: 'Beach life!')
@@ -24,7 +32,6 @@ feature 'pictures' do
       visit '/pictures'
       click_link 'Beach life!'
       fill_in 'Title', with: 'Sooo sunny!!'
-      save_and_open_page
       click_button 'Update Picture'
       expect(page).to have_content 'Sooo sunny!!'
       expect(page).not_to have_content 'Beach life!'
@@ -37,30 +44,11 @@ feature 'pictures' do
       expect(page).not_to have_content 'Beach life!'
       expect(page).to have_content 'Your picture has been deleted'
     end
-  end
 
-  context 'upload picture' do
-    scenario 'promts user to add a picture with a title' do
+    scenario 'displays picture on seperate page' do
       visit '/pictures'
-      click_link 'Add Picture'
-      fill_in 'Title', with: 'Beach life!'
-      click_button 'Create Picture'
-      expect(page).to have_content 'Beach life!'
-      expect(current_path).to eq '/pictures'
     end
   end
-
-    # scenario 'promts user to add a picture with a file upload' do
-    #   visit '/pictures'
-    #   click_link 'Add Picture'
-    #   fill_in 'Title', with: 'Beach life!'
-    #   attach_file('Image', '/path/to/image.jpg')
-    #   click_button 'Create Picture'
-    #   expect(page).to have_content 'Beach life!'
-    #   expect(current_path).to eq '/pictures'
-    # end
-
-
 
 
 end

@@ -3,9 +3,11 @@
 
 <% if @pictures.any? %>
   <% @pictures.all.each do |picture| %>
-    <%= image_tag picture.image.url(:thumb) %>
+    <%= link_to image_tag(picture.image.url(:medium)), picture_path(picture) %>
     <h5><%= link_to "Delete", picture_path(picture), method: :delete %></h5>
-    <h5><%= link_to "#{picture.title}", edit_picture_path(picture) %></h5>
+    <h5><%= link_to picture.title, edit_picture_path(picture) %></h5>
+    <h5><%= link_to "#{picture.comments.count}" "#{" comment".pluralize}", picture_path(picture) %>
+    <h5><%= link_to "Comment", new_picture_comment_path(picture) %></h5>
   <% end %>
 <% else %>
   <h1>No pictures yet</h1>
@@ -13,3 +15,5 @@
 
 <a href="pictures/new">Add Picture</a>
 </body>
+
+= 'endorsement'.pluralize review.endorsements.count

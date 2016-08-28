@@ -8,8 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <a href="/pictures">Home</a>
+  </header>
+
   <body>
     <%= notice %>
+    <%= alert %>
     <%= yield %>
   </body>
 </html>
