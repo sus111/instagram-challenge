@@ -1,7 +1,10 @@
 <body>
 <%= image_tag @picture.image.url(:medium) %>
 <h2><%= @picture.title %></h2>
+<% if @picture.user == current_user %>
+  <h5><%= link_to "Delete", picture_path(@picture), method: :delete %></h5>
+<% end %>
 <% @picture.comments.all.each do |comment| %>
-  <h5><%= "#{comment.thoughts}" %>
+<h5><%= "#{User.find(comment.user_id).email}: #{comment.thoughts}" %>
 <% end %>
 </body>

@@ -19,5 +19,15 @@ def add_picture
   visit '/pictures'
   click_link 'Add Picture'
   fill_in 'Title', with: 'Beach life!'
+  # attach_file('Image', '/app/assets/images/PlainBeachsmall.jpg')
   click_button 'Create Picture'
+end
+
+def sign_up(email: "test@test.com", password: "password")
+  visit '/pictures'
+  click_link('Sign up')
+  fill_in('Email', with: email)
+  fill_in('Password', with: password)
+  fill_in('Password confirmation', with: password)
+  click_button('Sign up')
 end

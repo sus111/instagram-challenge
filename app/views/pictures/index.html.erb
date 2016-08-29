@@ -1,13 +1,26 @@
 <body>
-<h1>Welcome to IstaClone!</h1>
+<h1>Welcome to InstaClone!</h1>
 
 <% if @pictures.any? %>
   <% @pictures.all.each do |picture| %>
-    <%= link_to image_tag(picture.image.url(:medium)), picture_path(picture) %>
-    <h5><%= link_to "Delete", picture_path(picture), method: :delete %></h5>
+    <%= link_to image_tag(picture.image.url(:medium)), picture_path(picture) %><br>
+
+    <% if current_user %>
+    <%= link_to "Like", picture_likes_path(picture), class: 'likes-link' %>
+    <span class="likes_count"> <%= picture.likes.count %> </span>
+    <%= 'like'.pluralize(picture.likes.count) %>
     <h5><%= link_to picture.title, edit_picture_path(picture) %></h5>
-    <h5><%= link_to "#{picture.comments.count}" "#{" comment".pluralize}", picture_path(picture) %>
+    <h5><%= link_to "Delete", picture_path(picture), method: :delete %></h5>
     <h5><%= link_to "Comment", new_picture_comment_path(picture) %></h5>
+
+
+
+    <% end %>
+
+      <h5><%= picture.title %></h5>
+      <h5><%= link_to "#{picture.comments.count}" "#{" comment".pluralize}", picture_path(picture) %><br>
+
+
   <% end %>
 <% else %>
   <h1>No pictures yet</h1>

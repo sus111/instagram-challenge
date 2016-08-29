@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'launchy'
+gem 'pry-rails'
+
 gem 'devise'
 # Devise related gems
 gem 'omniauth-facebook'
@@ -35,14 +37,17 @@ gem 'omniauth-facebook'
 gem 'paperclip'
 gem 'aws-sdk'
 
-gem 'pry-rails'
-gem 'shoulda-matchers'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
   group :test do
     gem 'rspec-rails'
     gem 'capybara'
+    gem 'rspec-collection_matchers'
+    gem 'poltergeist'
+    gem 'database_cleaner'
+    gem 'shoulda-matchers', '~> 3.1'
   end
 
 group :development, :test do

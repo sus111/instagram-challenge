@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'pictures' do
   context 'no pictures have been added' do
     scenario 'should display a prompt to add a picture' do
-      visit '/pictures'
+      sign_up
       expect(page).to have_content 'No pictures yet'
       expect(page).to have_content 'Add Picture'
     end
@@ -11,6 +11,7 @@ feature 'pictures' do
 
   context 'upload picture' do
     scenario 'promts user to add a picture with a title' do
+      sign_up
       add_picture
       expect(page).to have_content 'Beach life!'
       expect(current_path).to eq '/pictures'
@@ -19,7 +20,8 @@ feature 'pictures' do
 
   context 'pictures have been added' do
     before do
-      Picture.create(title: 'Beach life!')
+      sign_up
+      add_picture
     end
 
     scenario 'displays picture' do
@@ -28,8 +30,14 @@ feature 'pictures' do
       expect(page).not_to have_content('No picutres yet')
     end
 
+    # scenario 'displays user who posted picture' do
+    #   visit '/pictures'
+    #   sign_up
+    #   add_picture
+    #   expect(page).to have_content('test@test.com')
+    # end
+
     scenario 'let a user edit a picture title' do
-      visit '/pictures'
       click_link 'Beach life!'
       fill_in 'Title', with: 'Sooo sunny!!'
       click_button 'Update Picture'
@@ -39,7 +47,6 @@ feature 'pictures' do
     end
 
     scenario 'removes a picture when user clicks a delete link' do
-      visit '/pictures'
       click_link 'Delete'
       expect(page).not_to have_content 'Beach life!'
       expect(page).to have_content 'Your picture has been deleted'
