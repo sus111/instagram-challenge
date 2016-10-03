@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="408px" height="357px" viewBox="0 0 408 357" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="408 178.1998 408 -5.68434189e-14 0 -5.68434189e-14 0 178.1998 0 356.3996 408 356.3996 408 178.1998"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A4-Copy" transform="translate(-94.000000, -243.000000)">
+            <g id="Page-1" transform="translate(94.000000, 243.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M108,23.9996 C61.2,23.9996 24,61.1996 24,107.9996 C24,169.1996 62.4,209.9996 204,325.1996 C345.6,209.9996 384,169.1996 384,107.9996 C384,61.1996 346.8,23.9996 300,23.9996 C258,23.9996 235.2,49.1996 217.2,69.5996 L204,85.1996 L190.8,69.5996 C172.8,49.1996 150,23.9996 108,23.9996 L108,23.9996 Z M204,356.3996 L196.8,350.3996 C42,224.3996 0,179.9996 0,107.9996 C0,47.9996 48,-0.0004 108,-0.0004 C157.2,-0.0004 184.8,27.5996 204,49.1996 C223.2,27.5996 250.8,-0.0004 300,-0.0004 C360,-0.0004 408,47.9996 408,107.9996 C408,179.9996 366,224.3996 211.2,350.3996 L204,356.3996 Z" id="Fill-1" fill="#CE4097" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

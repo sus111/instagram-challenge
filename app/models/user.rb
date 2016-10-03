@@ -2,10 +2,16 @@ class User < ApplicationRecord
   has_many :comments,
   -> { extending WithUserAssociationExtension }
   has_many :pictures, -> { extending WithUserAssociationExtension }
+  has_many :likes, -> { extending WithUserAssociationExtension }
+  has_many :liked_pictures, through: :likes, source: :pictures
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
+
+  def has_liked?(picture)
+    liked_pictures.include? picture
+  end
 
 attr_accessor :login
 attr_accessor :username

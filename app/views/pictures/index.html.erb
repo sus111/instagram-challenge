@@ -1,29 +1,37 @@
 <body>
-<h1>Welcome to InstaClone!</h1>
+  <div id="contents">
+    <% if @pictures.any? %>
+      <% @pictures.all.each do |picture| %>
+      <div id="picture-box">
+        <div id="picture-box-contents">
+          <h5 id="picture-uploader"><%= "#{picture.user.email}" %></h5>
+          <% if picture.user == current_user %>
+          <h5 id="picture-title"><%= link_to picture.title, edit_picture_path(picture), class: 'uploaded-picture' %></h5>
+          <% end %>
+          <%= link_to image_tag(picture.image.url(:large)), picture_path(picture), class: 'uploaded-picture' %></img>
 
-<% if @pictures.any? %>
-  <% @pictures.all.each do |picture| %>
-    <%= link_to image_tag(picture.image.url(:medium)), picture_path(picture) %><br>
-
-    <% if current_user %>
-    <%= link_to "Like", picture_likes_path(picture), class: 'likes-link' %>
-    <span class="likes_count"> <%= picture.likes.count %> </span>
-    <%= 'like'.pluralize(picture.likes.count) %>
-    <h5><%= link_to picture.title, edit_picture_path(picture) %></h5>
-    <h5><%= link_to "Delete", picture_path(picture), method: :delete %></h5>
-    <h5><%= link_to "Comment", new_picture_comment_path(picture) %></h5>
-
+          <% if current_user %>
+          <div id="picture-links">
+            <%= link_to picture_likes_path(picture), class: 'likes-link' do %>
+              <%= image_tag 'heart.svg', id: 'heart' %>
+            <% end %>
+            <%= link_to picture_path(picture), method: :delete, class: 'delete-pic' do %>
+              <%= image_tag 'rubbish-bin.svg', id: 'rubbish-bin' %>
+            <% end %><br>
+            <h5 class="likes-count"><span> <%= picture.likes.count %> </span></h5>
+            <h5 class="like"><%= 'like'.pluralize(picture.likes.count) %></h5>
 
 
+            <h5><%= link_to "Comment", new_picture_comment_path(picture) %></h5>
+            <% end %>
+              <h5><%= link_to "#{picture.comments.count}" "#{" comment".pluralize}", picture_path(picture) %></h5><br>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+    <% else %>
+      <h1>No pictures yet</h1>
     <% end %>
-
-      <h5><%= picture.title %></h5>
-      <h5><%= link_to "#{picture.comments.count}" "#{" comment".pluralize}", picture_path(picture) %><br>
-
-
-  <% end %>
-<% else %>
-  <h1>No pictures yet</h1>
-<% end %>
-
+  </div>
 </body>

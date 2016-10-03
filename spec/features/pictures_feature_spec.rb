@@ -58,8 +58,6 @@ feature 'pictures' do
     end
   end
 
-
-
     # scenario 'promts user to add a picture with a file upload' do
     #   visit '/pictures'
     #   click_link 'Add Picture'

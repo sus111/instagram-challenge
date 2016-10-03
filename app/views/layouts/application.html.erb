@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstagramClone</title>
+    <title>Pictagram</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <header>
-    <a href="/pictures">Home</a>
-    <% if user_signed_in? %>
-      <h4><%= "Hello, #{current_user.email}" %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <a href="pictures/new">Add Picture</a>
-
-    <% else %>
-    <%= link_to "Sign in", new_user_session_path %>
-    <%= link_to "Sign up", new_user_registration_path %>
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-
-    <% end %>
-  </header>
-
   <body>
-    <%= notice %>
-    <%= alert %>
-    <%= yield %>
+    <header class="header">
+      <img id="header-bar-background" src="<%= asset_path( 'header_bar_png.png' ) %>">
+      <div id="header-contents">
+        <a href="/pictures">
+          <img id="logo" src="<%= asset_path( 'logo.svg' ) %>">
+        </a>
+        <h1 id="pictagram">Pictagram</h1>
+        <% if user_signed_in? %>
+          <h4 id="log-out-button" class="top-nav-links"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></h4>
+          <a href="pictures/new"><h4 id="add-picture" class="top-nav-links">Add Picture</h4></a>
+          <h4 id="user-welcome" class="top-nav-links"><%= "Hello, #{current_user.email}" %></h4>
+
+        <% else %>
+          <h4 class="top-nav-links" ><%= link_to "Sign in", new_user_session_path %></h4>
+          <h4 class="top-nav-links"><%= link_to "Sign up", new_user_registration_path %></h4>
+          <h4 class="top-nav-links"><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></h4>
+        <% end %>
+      </div>
+    </header>
+
+
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
   </body>
 </html>

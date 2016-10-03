@@ -13,3 +13,157 @@
  *= require_tree .
  *= require_self
  */
+ @font-face {
+   font-family: 'Advent Pro';
+   font-style: normal;
+   font-weight: 400;
+   src: local('Advent Pro Regular'), local('AdventPro-Regular'), url('http://themes.googleusercontent.com/static/fonts/adventpro/v1/rT9jpj7pBpZV6AmssbZKkxsxEYwM7FgeyaSgU71cLG0.woff') format('woff');
+ }
+
+body {
+  background-color: #F7F2F0;
+}
+
+a {
+  color:white;
+  text-decoration: none;
+}
+
+.top-nav-links {
+  display: inline-block;
+  font-family: helvetica;
+  font-weight: lighter;
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  z-index: 2;
+  font-size: 16px;
+}
+
+h5{
+  color: white;
+  font-family: helvetica;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+#header-bar-background {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  margin: -1.5% 0 5% 0;
+}
+
+#contents {
+  padding-top: 60px;
+}
+
+.header {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+
+
+#header-contents {
+  margin-top: -10px;
+}
+
+#logo {
+  z-index: 2;
+  position: absolute;
+  height: 40px;
+  float: left;
+  margin: 10px 0 0 10px;
+  display: inline-block;
+}
+
+#pictagram {
+  font-family: Advent Pro;
+  color: white;
+  z-index: 2;
+  position: absolute;
+  margin: 10px 0 0 70px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+#user-welcome{
+  display: inline-block;
+  position: relative;
+}
+
+#log-out-button {
+  margin: 0 2px 0 0
+  color: white;
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+}
+
+#add-picture {
+  position: relative;
+  display: inline-block;
+}
+
+#contents {
+  margin-top: 0px;
+}
+
+#picture-box {
+  background-color: #45434F;
+  margin: 30px auto 30px auto;
+  border: 2px solid #45434F;
+  box-shadow: 2px 2px 2px #888888;
+  border-radius: 7px;
+  width: 40%;
+  z-index: 1;
+}
+
+#picture-box-contents {
+  z-index: 2;
+}
+
+#picture-uploader {
+  text-align: left;
+  margin: 15px 0 0 25px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+#picture-title {
+  display: inline-block;
+  text-align: left;
+}
+
+#picture-links {
+  margin-left: 25px;
+
+}
+
+.uploaded-picture {
+  width: 100%;
+  display: block;
+  margin-left: 20px;
+}
+
+#heart {
+  width: 30px;
+  z-index: 2;
+}
+
+#rubbish-bin {
+  width: 25px;
+  float: right;
+  margin-right: 20px;
+}
+
+.likes-count {
+  display: inline-block;
+}
+
+.like {
+  display: inline-block;
+}
